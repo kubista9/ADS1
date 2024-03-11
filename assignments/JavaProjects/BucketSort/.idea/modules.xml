@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Bucket Sort.iml" filepath="$PROJECT_DIR$/Bucket Sort.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BucketSort.iml" filepath="$PROJECT_DIR$/BucketSort.iml" />
     </modules>
   </component>
 </project>

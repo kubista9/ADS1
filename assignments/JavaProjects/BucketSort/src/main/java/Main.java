@@ -4,13 +4,14 @@ public class Main {
 	public static void main(String[] args) {
 		EvenlyDistributedArrayGenerator evenlyDistributedArrayGenerator = new EvenlyDistributedArrayGenerator();
 		UnevenlyDistributedArrayGenerator unevenlyDistributedArrayGenerator = new UnevenlyDistributedArrayGenerator();
-		SortAndPrintRuntime sortAndPrintRuntime = new SortAndPrintRuntime();
+		SortAndPrintRuntime sortAndPrintRuntime = new SortAndPrintRuntime(8);
 		BucketSort bucketSort = new BucketSort();
+		ChartHelper chartHelper = new ChartHelper();
 
-		ArrayList<int[]> evenlyDistributedArrays = evenlyDistributedArrayGenerator.generateEvenlyDistributedArray(2);
+		ArrayList<int[]> evenlyDistributedArrays = evenlyDistributedArrayGenerator.generateEvenlyDistributedArray(4);
 		System.out.println("-----------------------------------");
 
-		ArrayList<int[]> unevenlyDistributedArrays = unevenlyDistributedArrayGenerator.generateUnevenlyDistributedArray(2);
+		ArrayList<int[]> unevenlyDistributedArrays = unevenlyDistributedArrayGenerator.generateUnevenlyDistributedArray(4);
 		System.out.println("-----------------------------------");
 
 		System.out.println("Unevenly Distributed Arrays runtime:");
@@ -20,6 +21,10 @@ public class Main {
 
 		System.out.println("Unevenly Distributed Arrays runtime:");
 		sortAndPrintRuntime.sortAndPrintRuntime(unevenlyDistributedArrays, bucketSort);
+
+		System.out.println("-----------------------------------");
+		System.out.println("Graphs");
+		chartHelper.createRuntimeChart(evenlyDistributedArrays, sortAndPrintRuntime.getRuntimes(), "Evenly Distributed Array Runtimes" );
 	}
 }
 
