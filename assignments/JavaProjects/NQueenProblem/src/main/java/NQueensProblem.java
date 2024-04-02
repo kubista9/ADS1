@@ -1,11 +1,11 @@
-public class NQueens {
+public class NQueensProblem {
 	private int[] board;
-	private int N;
+	private int chessboardSize;
 
-	public NQueens(int N) {
-		this.N = N;
-		this.board = new int[N];
-		for (int i = 0; i < N; i++) {
+	public NQueensProblem(int chessboardSize) {
+		this.chessboardSize = chessboardSize;
+		this.board = new int[chessboardSize];
+		for (int i = 0; i < chessboardSize; i++) {
 			board[i] = -1;
 		}
 	}
@@ -19,13 +19,18 @@ public class NQueens {
 	}
 
 	private boolean placeQueens(int row) {
-		if (row == N) {
+		if (row == chessboardSize) {
+			printSolution(); // Print the solution when a valid configuration is found
+			System.out.println("------------------------");
+			System.out.println("----Correct solution----");
 			return true;
 		}
 
-		for (int col = 0; col < N; col++) {
+		for (int col = 0; col < chessboardSize; col++) {
 			if (isSafe(row, col)) {
 				board[row] = col;
+				printSolution(); // Print the current state of the board
+				System.out.println("-----------------------");
 				if (placeQueens(row + 1)) {
 					return true;
 				}
@@ -35,6 +40,7 @@ public class NQueens {
 		}
 		return false;
 	}
+
 
 	private boolean isSafe(int row, int col) {
 		for (int i = 0; i < row; i++) {
@@ -46,8 +52,8 @@ public class NQueens {
 	}
 
 	private void printSolution() {
-		for (int i = 0; i < N; i++) {
-			for (int j = 0; j < N; j++) {
+		for (int i = 0; i < chessboardSize; i++) {
+			for (int j = 0; j < chessboardSize; j++) {
 				if (board[i] == j) {
 					System.out.print(" Q ");
 				} else {
@@ -56,10 +62,5 @@ public class NQueens {
 			}
 			System.out.println();
 		}
-	}
-
-	public static void main(String[] args) {
-		NQueens nQueens = new NQueens(8);
-		nQueens.solve();
 	}
 }
