@@ -21,6 +21,7 @@ class Graph {
 	public void addEdge(String node1, String node2, int weight) { //between two nodes
 		addNode(node1);
 		addNode(node2);
+		adjacencyList.get(node1).add(new Edge(node2, weight));
 		adjacencyList.get(node2).add(new Edge(node1, weight)); // For undirected graph
 	}
 

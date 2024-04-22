@@ -20,10 +20,13 @@ class Dijkstra {
 		// It repeatedly selects the node with the smallest distance from the priority queue, updates the
 		// distances of its adjacent nodes, and adds them to the priority queue. This process continues
 		// until the priority queue is empty, indicating that all reachable nodes have been visited.
+
+
 		while (!queue.isEmpty()) {
 			String currentNode = queue.poll(); // Removes the node with the smallest distance from the priority queue. Returns the head of the queue.
 			for (Graph.Edge edge : graph.getAdjacentNodes(currentNode)) {
 				int newDistance = distances.get(currentNode) + edge.weight;
+
 				if (newDistance < distances.get(edge.node)) {
 					distances.put(edge.node, newDistance); //updates the previousNodes map, which keeps track of the node that leads to the shortest path to each node.
 					previousNodes.put(edge.node, currentNode);
